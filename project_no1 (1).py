@@ -11,7 +11,7 @@ def scale_line(line, factor):           #servings scaling function
     return f"{number:g} {rest}"
 
 if "df" not in st.session_state:               
-    st.session_state.df = pd.read_csv("recipes.csv")
+    st.session_state.df = pd.read_csv("recipes.csv").reindex(columns=["Recipe","Category","Ingredients","Servings","Estimated time","Instructions","Difficulty level","Rating","Video"])
     if "Servings" not in st.session_state.df.columns:
         st.session_state.df["Servings"] = 1
 if "Video" not in st.session_state.df.columns:
